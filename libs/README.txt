@@ -8,3 +8,9 @@ mvn install:install-file -Dfile=libs/ojdbc14-10.2.0.4.0.jar -DgroupId=com.oracle
 #springside-utils-5.0.0-SNAPSHOT.jar
 
 mvn install:install-file -Dfile=libs/springside-utils-5.0.0-SNAPSHOT.jar -DgroupId=springside4 -DartifactId=springside-utils -Dversion=5.0.0-SNAPSHOT -Dpackaging=jar
+
+#alipay-sdk-java20170511115337.jar  支付宝
+mvn install:install-file -Dfile=libs/alipay-sdk-java20170511115337.jar -DgroupId=alipay -DartifactId=alipay-sdk-java20170511115337 -Dversion=1.0 -Dpackaging=jar
+
+#alipay-tradesdk
+mvn install:install-file -Dfile=libs/alipay-trade-sdk-20161215.jar -DgroupId=alipay -DartifactId=alipay-trade-sdk -Dversion=1.0 -Dpackaging=jar
