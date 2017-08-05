@@ -1,1 +1,1 @@
-%WYY_HOME%Sublime Text 3;%WYY_HOME%apache-maven-3.5.0;%WYY_HOME%Android\sdk\platform-tools;C:\Users\wangy\MyTools\shell;
+%WYY_HOME%Sublime Text 3;%WYY_HOME%apache-maven-3.5.0;%WYY_HOME%Android\sdk\platform-tools;C:\Users\admin\MyTools\shell;%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin
