@@ -1,0 +1,9 @@
+以后将生成的apk和version.txt给传凤
+version.txt：
+{
+	"versionCode" : 1,
+	"versionName" : "1.0.3",
+	"url" : "http://app.smhzz.cn/app-sanming_1.0.3.apk"
+}
+1.判断是否更新是versionCode和versionName只要有一个大于当前版本就会启动更新
+2.下载apk文件时FileProiver在targetSdkVersion >= 24 时候的权限修改具体可参考：https://stackoverflow.com/questions/38200282/android-os-fileuriexposedexception-file-storage-emulated-0-test-txt-exposed
