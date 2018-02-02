@@ -138,7 +138,7 @@ function CopyToMyToolsConf{
     [CmdletBinding(DefaultParameterSetName="NoCredentials")]
        param(
           [Parameter(Mandatory=$false,Position=0)]
-          [System.Uri]$isPushGit 
+          [System.Uri]$commitLog 
        )
 
     $conf="$MyWorkSpace\MyTools\conf"
@@ -149,13 +149,13 @@ function CopyToMyToolsConf{
     copy $PROFILE $conf
     copy $HOME\.bashrc $conf
     copy $HOME\.bash_aliases $conf
-    if(($isPushGit -eq $null)){
+    if(($commitLog -eq $null)){
 
     }
     else{
         $ww = $PWD
         cd "$MyWorkSpace\MyTools\"
-        sh gpush.sh "MyToolsConf"
+        sh gpush.sh "MyToolsConf:$commitLog"
         cd $ww
     }
 }
