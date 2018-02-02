@@ -1,6 +1,21 @@
 cd ~
+# -*- coding: utf-8 -*- 
+#[System.Console]::OutputEncoding=[System.Text.Encoding]::GetEncoding(936)
+chcp 65001
 #powershell5下载地址  https://download.microsoft.com/download/6/F/5/6F5FF66C-6775-42B0-86C4-47D41F2DA187/W2K12-KB3191565-x64.msu
 $MyWorkSpace="C:\Dev\workspace"
+
+$sourceStr="abc\u6717\u8bf5strong\uff1a\u5ef6\u4f38<\/p>\n<p>\u6211\u5e38\u5e38\u5728\u503e\u542c\u5927\u81ea\u7136\u58f0\u97f3\u7684\u65f6\u5019\uff0c\u89c9\u5bdf\u5230\u4e00\u4e9b\u9690\u6ca1\u5728\u65f6\u5149\u6df1\u5904\u7684\u8bdd\u8bed\u3002\u8fd9\u4e9b\u6709\u7740\u6c89\u6728\u4e00\u6837\u8d28\u5730\u7684\u58f0\u97f3\uff0c\u4f3c\u4e4e\u67d4\u8f6f\u5374\u53c8\u575a\u97e7\u3002\u5c3d\u7ba1\u90a3\u4e9b\u7ebf\u7d22\u65f6\u800c\u6e05\u6670\uff0c\u65f6\u800c\u6a21\u7cca\uff0c\u53ef\u662f\u5728\u9690\u7ea6\u7684\u8282\u594f\u91cc\u5374\u603b\u6709\u4e9b\u7529\u4e0d\u8131\u7684\u8bb0\u5fc6\u75d5\u8ff9\uff0c\u575a\u5b9a\uff0c\u53c8\u5bcc\u4e8e\u8868\u60c5\u3002"
+
+#中文输出需要先转换为unicode
+function utf8ToUnicode($sourceStr){
+    $matchEvaluator={
+        param($v)
+        [char][int]($v.Value.replace('\u','0x'))
+    }
+    [regex]::Replace($sourceStr,'\\u[0-9-a-f]{4}',$matchEvaluator)
+}
+utf8ToUnicode($sourceStr)
 
 function Sh_Xpl {
    [CmdletBinding(DefaultParameterSetName="NoCredentials")]
@@ -120,6 +135,12 @@ Set-Alias delenv Del-EnvironmentVariable
 
 #拷贝到MyTools配置文件
 function CopyToMyToolsConf{
+    [CmdletBinding(DefaultParameterSetName="NoCredentials")]
+       param(
+          [Parameter(Mandatory=$false,Position=0)]
+          [System.Uri]$isPushGit 
+       )
+
     $conf="$MyWorkSpace\MyTools\conf"
     "Dest : $conf 
     $PROFILE 
@@ -128,10 +149,15 @@ function CopyToMyToolsConf{
     copy $PROFILE $conf
     copy $HOME\.bashrc $conf
     copy $HOME\.bash_aliases $conf
-    $ww = $PWD
-    cd "$MyWorkSpace\MyTools\"
-    sh gpush.sh "MyToolsConf"
-    cd $ww
+    if(($isPushGit -eq $null)){
+
+    }
+    else{
+        $ww = $PWD
+        cd "$MyWorkSpace\MyTools\"
+        sh gpush.sh "MyToolsConf"
+        cd $ww
+    }
 }
 Set-Alias copytotool CopyToMyToolsConf
 
