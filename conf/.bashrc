@@ -1,5 +1,6 @@
-alias gitpush='sh gitpush.sh '
+alias gpush='sh gitpush.sh '
 alias xpl="sh xpl.sh "
+alias pngq="sh png.sh"
 
 alias df='df -h'
 alias du='du -h'
@@ -21,17 +22,10 @@ alias llf='ls --color=tty -l|grep --color=auto ^-'
 alias llda='ls -al|grep --color ^d'
 alias llfa='ls -al|grep --color  ^-'
 
-alias cdjava='cd "F:\workspace_javaee"'
-alias cdphp='cd "F:\dev\Php\workspace"'
-alias cdhome='cd "F:\cygwin64\home"'
-alias cdjs2='cd "F:\dev\JS"'
-alias cdssf='cd "F:\workspace_javaee\MyShop"'
-alias cdshop='cd "F:\workspace_javaee\ShopDemo"'
-alias cdssm='cd "F:\workspace_javaee\MySSMShop"'
-alias cddown='cd "F:\编程工具类"'
-alias cdredis2='cd "F:\vagrant-redis"'
-alias cdredis='cd "F:\Program Files\redis-latest"'
-
+alias cdjava='cd "C:\Dev\workspace\IdeaProject"'
+alias cdjs='cd "C:\Dev\workspace\ReactProject"'
+alias cdtool='cd "C:\Dev\workspace\MyTools"'
+alias cdother='cd "C:\Dev\workspace\Others"'
 alias startredis='sh xpl.sh redis-server.exe redis.windows.conf'
 
 alias open='cmd /c start '
