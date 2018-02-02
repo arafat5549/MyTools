@@ -128,10 +128,10 @@ function CopyToMyToolsConf{
     copy $PROFILE $conf
     copy $HOME\.bashrc $conf
     copy $HOME\.bash_aliases $conf
-
+    $ww = $PWD
     cd "$MyWorkSpace\MyTools\"
-    sh gpush.sh "提交MyTools配置文件"
-    cd -
+    sh gpush.sh "MyToolsConf"
+    cd $ww
 }
 Set-Alias copytotool CopyToMyToolsConf
 
