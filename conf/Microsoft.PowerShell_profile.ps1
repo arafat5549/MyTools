@@ -189,8 +189,8 @@ function Sh_Xpl {
 }
 Set-Alias xpl Sh_Xpl
 
-# Get-ChildItem *.7z | % {& "C:\Program Files\7-Zip\7z.exe" "x" $_ "-o$PWD"}
-
+# Get-ChildItem *.zip | % {& "C:\Program Files\7-Zip\7z.exe" "x" $_ "-o$PWD"}
+#copy -Force -Recurse G:\EFI\* Y:\EFI
 function Export-HTML{
     Get-ChildItem $HOME\*.ps1  | Select-String 'clear' |  #-Recurse
     foreach {
@@ -257,6 +257,14 @@ function Dock_StartByName{
     cddphp
     docker-compose up -d
     cd $ww
+  }
+  elseif($Name -eq [System.Uri]("ubuntu")){
+    docker run -d --name $Name -it ubuntu 
+    dockcmd $Name /bin/bash
+  }
+  elseif($Name -eq [System.Uri]("ariang")){
+    docker run -d --name $Name -p 9000:80 -p 6800:6800 -v E:/Downloads:/data  -v E:/aria2/aria2.session:/root/conf/aria2.session wahyd4/aria2-ui
+    #docker run -d --name ariang -p 9000:80 -p 6800:6800 -v E:/Downloads:/data  wahyd4/aria2-ui
   }
   
 }
