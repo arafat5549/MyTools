@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "-------Git Init Begin-------"
+echo "-------Git Init Begin[192.168.0.133:wangyao]-------"
 git init 
 git remote add origin git@192.168.0.133:wangyao/$1.git
 #git add README.md
